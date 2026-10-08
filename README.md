@@ -13,6 +13,7 @@ Lüftungsgitter reinigen und die Anlage 15 Minuten abkühlen lassen [1].
 Quellen:
   [1] laser_lm50.pdf, Seite 2
 ```
+![Demo: Frage mit Quellenangabe und abgelehnte Fangfrage](docs/images/demo-ask.png)
 
 ## Ergebnisse der Evaluation
 
@@ -26,6 +27,20 @@ Gemessen mit einem Fragenkatalog (`eval/questions.json`): 12 Fragen mit bekannte
 | **v4** | **Chunks mit 400 Zeichen** | **100 %** | **100 %** | **100 %** |
 
 Chunk-Größe im Vergleich (Context Recall): 300 → 100 %, 400 → 100 %, 500 → 91,7 %, 700 → 83,3 %.
+
+<details>
+<summary>Screenshots der Evaluation (v1 → v2 → v4)</summary>
+
+**v1 – 75 % richtige Antworten**
+![Evaluation v1](docs/images/evaluation-v1.png)
+
+**v2 – 91,7 % nach dem strukturierten Prompt**
+![Evaluation v2](docs/images/evaluation-v2.png)
+
+**v4 – 100 % mit 400-Zeichen-Chunks**
+![Evaluation final](docs/images/evaluation-final.png)
+
+</details>
 
 **Wichtigste Erkenntnisse**
 - Retrieval und Generierung getrennt zu messen zeigt, *wo* ein Fehler entsteht. Ein Fehler, der wie ein LLM-Problem aussah, lag in Wahrheit am Chunking.
