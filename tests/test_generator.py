@@ -69,6 +69,7 @@ def test_no_sources_when_nothing_found():
     result = answer("Strompreis?", FakeRetriever(), FakeLLM(NOT_FOUND + " [1], [2]"), k=2)
     assert not result.found
     assert result.sources == []
+    assert result.text == NOT_FOUND
 
 
 def ollama_running() -> bool:

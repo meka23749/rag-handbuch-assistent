@@ -84,4 +84,6 @@ def answer(question: str, retriever, llm, k: int = 3) -> Answer:
     """Full RAG: retrieve k passages, then let the LLM answer from them."""
     hits = retriever.search(question, k=k)
     text = llm.complete(SYSTEM_PROMPT, build_prompt(question, hits))
+    if text.startswith(NOT_FOUND):
+        text = NOT_FOUND  # drop any [n] the LLM added anyway
     return Answer(text=text, passages=hits, cited=cited_numbers(text, len(hits)))
