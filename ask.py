@@ -22,9 +22,10 @@ def main():
     result = answer(args.question, Retriever(args.db), OllamaLLM(model=args.model), k=args.k)
 
     print("\nAntwort:\n" + result.text)
-    print("\nVerwendete Auszüge:")
-    for hit in result.sources:
-        print(f"  - {hit.source}, Seite {hit.page} (Ähnlichkeit {hit.score})")
-        
+    if result.sources:
+        print("\nQuellen:")
+        for number, hit in result.sources:
+            print(f"  [{number}] {hit.source}, Seite {hit.page}")
+
 if __name__ == "__main__":
     main()
