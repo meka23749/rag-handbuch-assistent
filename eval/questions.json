@@ -1,0 +1,17 @@
+[
+  {"question": "Was bedeutet Fehler E42?", "source": "kompressor_kx200.pdf", "page": 2, "must_contain": ["Drehrichtung", "Phasen"]},
+  {"question": "Der Kompressor meldet E12. Was soll ich tun?", "source": "kompressor_kx200.pdf", "page": 2, "must_contain": ["Kühler", "Öl"]},
+  {"question": "Wie oft muss das Öl gewechselt werden?", "source": "kompressor_kx200.pdf", "page": 2, "must_contain": ["4000"]},
+  {"question": "Wann muss der Luftfilter getauscht werden?", "source": "kompressor_kx200.pdf", "page": 2, "must_contain": ["2000"]},
+  {"question": "Welchen Druck schafft der Kompressor höchstens?", "source": "kompressor_kx200.pdf", "page": 1, "must_contain": ["10 bar"]},
+  {"question": "Wie viel Öl passt in den Kompressor?", "source": "kompressor_kx200.pdf", "page": 1, "must_contain": ["4,5"]},
+  {"question": "Was muss ich vor Arbeiten am Kompressor beachten?", "source": "kompressor_kx200.pdf", "page": 1, "must_contain": ["Hauptschalter"]},
+  {"question": "Der Laser ist zu heiß, was soll ich tun?", "source": "laser_lm50.pdf", "page": 2, "must_contain": ["abkühlen"]},
+  {"question": "Die Laseranlage findet die Steuerung nicht.", "source": "laser_lm50.pdf", "page": 2, "must_contain": ["Netzwerkkabel"]},
+  {"question": "Womit reinige ich die Optik des Lasers?", "source": "laser_lm50.pdf", "page": 2, "must_contain": ["Isopropanol"]},
+  {"question": "Wie schalte ich die Laseranlage ein?", "source": "laser_lm50.pdf", "page": 1, "must_contain": ["Hauptschalter"]},
+  {"question": "Welche Laserklasse hat die LM-50?", "source": "laser_lm50.pdf", "page": 1, "must_contain": ["Klasse 4"]},
+  {"question": "Wie hoch ist der Strompreis in Deutschland?", "source": null, "page": null, "must_contain": []},
+  {"question": "Wie viel kostet ein Ersatzfilter für den Kompressor?", "source": null, "page": null, "must_contain": []},
+  {"question": "Wie lange ist die Garantie auf die Laseranlage?", "source": null, "page": null, "must_contain": []}
+]
