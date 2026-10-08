@@ -1,7 +1,7 @@
 """Tests for rag/evaluation.py: judging answers and computing the scores."""
 from pathlib import Path
 
-from rag.evaluation import Case, evaluate, judge, load_cases, summary
+from rag.evaluation import Case, context_has_answer, evaluate, judge, load_cases, summary
 from rag.generator import NOT_FOUND, Answer
 from rag.retriever import Hit
 
@@ -44,6 +44,13 @@ def test_trap_must_be_refused():
     assert judge(Answer(text=NOT_FOUND, passages=[OIL]), TRAP_CASE)
     assert not judge(Answer(text="Der Strom kostet 30 Cent [1].", passages=[OIL], cited=[1]), TRAP_CASE)
 
+def test_right_page_but_wrong_chunk_is_not_enough():
+    """The E12 case: a chunk of the right page is found, but not the one with the answer."""
+    case = Case("E12?", "kompressor_kx200.pdf", 2, ["Kühler"])
+    other_chunk = Hit(text="E27: Drucksensor defekt. E42: ...", source="kompressor_kx200.pdf", page=2, score=0.5)
+    right_chunk = Hit(text="E12: Übertemperatur. Kühler reinigen.", source="kompressor_kx200.pdf", page=2, score=0.4)
+    assert not context_has_answer([other_chunk], case)
+    assert context_has_answer([other_chunk, right_chunk], case)
 
 class FakeRetriever:
     def search(self, question, k=3):
@@ -58,7 +65,7 @@ class FakeLLM:
 def test_summary_percentages():
     """One normal question answered right and one trap answered wrongly -> 100 % / 0 %."""
     results = evaluate([LASER_CASE, TRAP_CASE], FakeRetriever(), FakeLLM(), k=2)
-    assert summary(results) == {"retrieval_hit_rate": 100.0, "answer_accuracy": 100.0, "refusal_rate": 0.0}
+    assert summary(results) == {"context_recall": 100.0, "answer_accuracy": 100.0, "refusal_rate": 0.0}
 
 
 def test_retrieval_only_without_llm():
