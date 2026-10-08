@@ -17,7 +17,7 @@ def main():
     parser.add_argument("--pdfs", default="data/pdfs", type=Path, help="folder with the PDFs")
     parser.add_argument("--db", default="data/index", type=Path, help="folder for the database")
     parser.add_argument("--embedder", default="semantic", choices=["semantic", "tfidf"])
-    parser.add_argument("--max-chars", default=500, type=int, help="maximum chunk size")
+    parser.add_argument("--max-chars", default=400, type=int, help="maximum chunk size")
     args = parser.parse_args()
 
     pages = load_folder(args.pdfs)

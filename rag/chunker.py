@@ -27,7 +27,7 @@ def split_sentences(text: str) -> list[str]:
     return [p.strip() for p in parts if p.strip()]
 
 
-def chunk_page(page: Page, max_chars: int = 500, overlap_sentences: int = 1) -> list[Chunk]:
+def chunk_page(page: Page, max_chars: int = 400, overlap_sentences: int = 1) -> list[Chunk]:
     """Group the sentences of one page into chunks of at most max_chars characters."""
     sentences = split_sentences(page.text)
     texts, current = [], []
@@ -46,7 +46,7 @@ def chunk_page(page: Page, max_chars: int = 500, overlap_sentences: int = 1) -> 
     ]
 
 
-def chunk_pages(pages: list[Page], max_chars: int = 500, overlap_sentences: int = 1) -> list[Chunk]:
+def chunk_pages(pages: list[Page], max_chars: int = 400, overlap_sentences: int = 1) -> list[Chunk]:
     """Chunk all pages, one after the other."""
     chunks = []
     for page in pages:
