@@ -35,7 +35,7 @@ def main():
 
     print("\nErgebnis:")
     for name, value in summary(results).items():
-        if llm is None and name != "retrieval_hit_rate":
+        if llm is None and name != "context_recall":
             continue
         print(f"  {name}: {value} %")
 
