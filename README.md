@@ -1,5 +1,7 @@
 # Handbuch-Assistent (RAG)
 
+  ![tests](https://github.com/meka23749/rag-handbuch-assistent/actions/workflows/tests.yml/badge.svg)
+
 Ein Assistent, der Fragen zu technischen Handbüchern (PDF) beantwortet – **nur mit Informationen aus den Dokumenten** und **mit Quellenangabe** (Datei und Seite). Steht die Antwort nicht in den Handbüchern, sagt er das, statt etwas zu erfinden.
 
 Umgesetzt nach dem RAG-Prinzip (*Retrieval-Augmented Generation*), komplett lokal: Embeddings und Sprachmodell laufen auf dem eigenen Rechner, keine Daten verlassen das Netzwerk.
